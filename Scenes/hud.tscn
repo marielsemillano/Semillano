@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://fmb8ex44gsut"]
+
+[ext_resource type="Script" uid="uid://d0hahp21scs4a" path="res://Scripts/hud.gd" id="1_37p78"]
+[ext_resource type="FontFile" uid="uid://ix7jiv5uwgol" path="res://Fonts/Xolonium-Regular.ttf" id="2_fccik"]
+
+[node name="HUD" type="CanvasLayer" unique_id=1497880507]
+script = ExtResource("1_37p78")
+
+[node name="ScoreLabel" type="Label" parent="." unique_id=1477017459]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_fccik")
+theme_override_font_sizes/font_size = 64
+text = "0"
+horizontal_alignment = 1
+
+[node name="Message" type="Label" parent="." unique_id=444854107]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.29200003
+anchor_right = 0.5
+anchor_bottom = 0.33400002
+offset_left = -104.0
+offset_top = -0.24002075
+offset_right = 104.0
+offset_bottom = 269.52
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_fccik")
+theme_override_font_sizes/font_size = 30
+text = "Dodge the Creepy Candies!"
+horizontal_alignment = 1
+
+[node name="StartButton" type="Button" parent="." unique_id=1265089549]
+custom_minimum_size = Vector2(200, 50)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = 40.0
+offset_right = 100.0
+offset_bottom = 90.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_fccik")
+theme_override_font_sizes/font_size = 25
+text = "Start"
+
+[node name="MessageTimer" type="Timer" parent="." unique_id=1589386591]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="timeout" from="MessageTimer" to="." method="_on_message_timer_timeout"]
